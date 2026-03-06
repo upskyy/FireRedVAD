@@ -78,8 +78,14 @@ $ bash inference_aed.sh
 If installed via `pip install firered-vad`, use the `fireredvad` CLI directly:
 ```bash
 $ fireredvad --task vad --wav_path assets/hello_zh.wav --model_dir pretrained_models/FireRedVAD/VAD
+# 2026-03-06 17:30:00,086 (param:16) INFO: #param of DetectModel <class 'fireredvad.core.detect_model.DetectModel'> is 588417 = 2.2 MB (float32)
+# 2026-03-06 17:30:00,131 (fireredvad_cli:37) INFO: Result: {'dur': 2.32, 'timestamps': [(0.44, 1.82)], 'wav_path': 'assets/hello_zh.wav'}
 $ fireredvad --task stream_vad --wav_path assets/hello_en.wav --model_dir pretrained_models/FireRedVAD/Stream-VAD
+# 2026-03-06 17:30:28,318 (param:16) INFO: #param of DetectModel <class 'fireredvad.core.detect_model.DetectModel'> is 567937 = 2.2 MB (float32)
+# 2026-03-06 17:30:28,342 (fireredvad_cli:37) INFO: Result: ([StreamVadFrameResult(frame_idx=1, is_speech=0, raw_prob=0.037, smoothed_prob=0.037, is_speech_start=False, is_speech_end=False, speech_start_frame=-1, speech_end_frame=-1), StreamVadFrameResult(frame_idx=2, is_speech=0, raw_prob=0.037, smoothed_prob=0.037, is_speech_start=False, is_speech_end=False, speech_start_frame=-1, speech_end_frame=-1), ...]
 $ fireredvad --task aed --wav_path assets/event.wav --model_dir pretrained_models/FireRedVAD/AED
+# 2026-03-06 17:31:13,912 (param:16) INFO: #param of DetectModel <class 'fireredvad.core.detect_model.DetectModel'> is 588931 = 2.2 MB (float32)
+# 2026-03-06 17:31:13,989 (fireredvad_cli:37) INFO: Result: {'dur': 22.016, 'event2timestamps': {'speech': [(0.4, 3.56), (3.66, 9.08), (9.27, 9.77), (10.78, 21.76)], 'singing': [(1.79, 19.96), (19.97, 22.016)], 'music': [(0.09, 12.32), (12.33, 22.016)]}, 'event2ratio': {'speech': 0.848, 'singing': 0.905, 'music': 0.991}, 'wav_path': 'assets/event.wav'}
 ```
 
 For source installation, set up `PATH` and `PYTHONPATH` first: `export PATH=$PWD/fireredvad/bin/:$PATH; export PYTHONPATH=$PWD/:$PYTHONPATH`
